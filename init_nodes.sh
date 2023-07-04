@@ -68,15 +68,15 @@ sudo apt-get update
 sudo apt-get install -y apt-transport-https ca-certificates curl
 
 # Import GPG key for Kubernetes packages
-sudo curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
+curl -fsSL https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-archive-keyring.gpg
 
 # Add Kubernetes package repository
-echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
+echo "deb [signed-by=/etc/apt/keyrings/kubernetes-archive-keyring.gpg] https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee /etc/apt/sources.list.d/kubernetes.list
 
 # Update package lists
 sudo apt-get update
 
-# Install specific versions of kubelet, kubectl, and kubeadm
+# Install latest versions of kubelet, kubectl, and kubeadm
 sudo apt-get install -y kubelet kubeadm kubectl
 
 # Prevent automatic updates for kubelet, kubectl, and kubeadm
