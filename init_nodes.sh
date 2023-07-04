@@ -77,7 +77,7 @@ echo "deb [signed-by=/usr/share/keyrings/kubernetes-archive-keyring.gpg] https:/
 sudo apt-get update
 
 # Install specific versions of kubelet, kubectl, and kubeadm
-sudo apt-get install -y kubelet=1.27.3-00 kubectl=1.27.3-00 kubeadm=1.27.3-00
+sudo apt-get install -y kubelet kubeadm kubectl
 
 # Prevent automatic updates for kubelet, kubectl, and kubeadm
 sudo apt-mark hold kubelet kubeadm kubectl
